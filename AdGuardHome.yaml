@@ -1,0 +1,27 @@
+bind_host: 0.0.0.0
+bind_port: ${PORT}   # Render خودش PORT میده
+users: []
+http_proxy: ""
+language: en
+dns:
+  upstream_dns:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+  bootstrap_dns:
+    - 1.1.1.1
+  ratelimit: 0
+tls:
+  enabled: true
+  server_name: your-app.onrender.com
+  force_https: true
+  port_https: ${PORT}
+filters:
+  - enabled: true
+    url: https://adaway.org/hosts.txt
+    name: AdAway
+  - enabled: true
+    url: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    name: StevenBlack
+  - enabled: true
+    url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+    name: AdGuard Base
